@@ -13,7 +13,7 @@ ADD . /source
 RUN go build -o /bin/hiveproxy ./tool
 
 # Pull the executable into a fresh image.
-FROM alpine:latest
+FROM alpine:3.18.3
 COPY --from=builder /bin/hiveproxy .
 EXPOSE 8081/tcp
 ENTRYPOINT ./hiveproxy --addr :8081
